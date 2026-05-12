@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Listen on TCP port 98 (localhost connections)
+nc -l -p 98
