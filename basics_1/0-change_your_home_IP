@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Map localhost to 127.0.0.2 and facebook.com to 8.8.8.8 in /etc/hosts
+tmp="$(mktemp)"
+grep -v 'facebook.com' /etc/hosts | sed 's/^127\.0\.0\.1[[:blank:]]\+localhost/127.0.0.2\tlocalhost/' > "$tmp"
+printf '%s\n' '8.8.8.8	facebook.com' >> "$tmp"
+cp -f "$tmp" /etc/hosts
+rm -f "$tmp"
