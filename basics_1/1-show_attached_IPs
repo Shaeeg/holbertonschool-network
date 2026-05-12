@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# List active IPv4 addresses on this host (one per line)
+ip -o -4 addr show up | awk '{print $4}' | cut -d/ -f1 | sort -u
